@@ -6,6 +6,19 @@ export interface IPayment {
   updateAccount<T>(data: unknown): Promise<T>;
 }
 
+export interface ICPaymentRQ {
+  accountNo?: string;
+  currency: string;
+  description?: string;
+  amount: number;
+}
+
+export interface IGPaymentRQ extends ICPaymentRQ {
+  restaurantAccount: string;
+  restaurantName?: string;
+  transactionId?: string;
+}
+
 export enum IPaymentType {
   WAAFI,
   EDAHAB,
