@@ -28,8 +28,10 @@ export class PaymentFactory {
   createPaymentFactory(paymentType: IPaymentType) {
     if (paymentType === IPaymentType.WAAFI) {
       return new WaafiPay();
-    } else {
+    } else if (paymentType === IPaymentType.EDAHAB) {
       return new DahabPay();
+    } else {
+      throw new Error("Invalid payment type");
     }
   }
 }
